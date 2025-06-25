@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D32F2F">
+    android:background="#D32F2F"> <!-- Merah gelap -->
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="Daftar Akun"
+            android:text="Selamat Datang FoodGo"
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <!-- Container Form Login -->
         <LinearLayout
             android:orientation="vertical"
             android:background="@drawable/bg_rounded_white"
@@ -46,18 +47,6 @@
                 android:layout_marginBottom="16dp" />
 
             <EditText
-                android:id="@+id/etEmail"
-                android:hint="Email"
-                android:drawableLeft="@drawable/ic_email"
-                android:drawablePadding="10dp"
-                android:padding="12dp"
-                android:background="@android:drawable/edit_text"
-                android:inputType="textEmailAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp" />
-
-            <EditText
                 android:id="@+id/etPassword"
                 android:hint="Password"
                 android:drawableLeft="@drawable/ic_password"
@@ -70,18 +59,18 @@
                 android:layout_marginBottom="24dp" />
 
             <Button
-                android:id="@+id/btnRegister"
-                android:text="Daftar"
+                android:id="@+id/btnLogin"
+                android:text="Login"
                 android:textAllCaps="false"
                 android:backgroundTint="#D32F2F"
-                android:textColor="#FFFFFF"
+                android:textColor="#FFF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvLogin"
-            android:text="Sudah punya akun? Login di sini"
+            android:id="@+id/tvRegister"
+            android:text="Belum punya akun? Daftar di sini"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:gravity="center"
