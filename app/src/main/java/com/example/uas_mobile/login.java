@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class login extends AppCompatActivity {
 
     EditText etUsername, etPassword;
@@ -47,7 +46,11 @@ public class login extends AppCompatActivity {
                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                     if (response.body() != null && response.body().isSuccess()) {
                         Toast.makeText(login.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        // Arahkan ke home/dashboard jika perlu
+
+                        // ⬇️ Arahkan ke MenuMakananActivity
+                        Intent intent = new Intent(login.this, MenuMakanan.class);
+                        startActivity(intent);
+                        finish(); // agar tidak kembali ke login saat tekan back
                     } else {
                         Toast.makeText(login.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -61,10 +64,8 @@ public class login extends AppCompatActivity {
         });
 
         tvRegister.setOnClickListener(v -> {
-            startActivity(new Intent(login
-                    .this, Register.class));
+            startActivity(new Intent(login.this, Register.class));
             finish();
         });
     }
-
 }

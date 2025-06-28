@@ -49,7 +49,7 @@ public class Register extends AppCompatActivity {
                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                     if (response.body() != null && response.body().isSuccess()) {
                         Toast.makeText(Register.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(Register.this, MainActivity.class));
+                        startActivity(new Intent(Register.this, login.class));
                         finish();
                     } else {
                         Toast.makeText(Register.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
@@ -64,7 +64,7 @@ public class Register extends AppCompatActivity {
         });
 
         tvLogin.setOnClickListener(v -> {
-            startActivity(new Intent(Register.this, MainActivity.class));
+            startActivity(new Intent(Register.this, login.class));
             finish();
         });
 
