@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".RiwayatPesanan"
+            android:exported="false" />
+        <activity
             android:name=".detail_makanan"
             android:exported="false" />
         <activity

@@ -1,7 +1,11 @@
 package com.example.uas_mobile;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -77,13 +81,33 @@ public class detail_makanan extends AppCompatActivity {
 
         // Tombol Pesan Sekarang
         btnPesan.setOnClickListener(v -> {
-            // Tambahkan ke keranjang atau lanjutkan ke checkout
-            Toast.makeText(this, "Pesanan ditambahkan: " + jumlah + " x " + nama, Toast.LENGTH_SHORT).show();
+            int totalHarga = hargaSatuan * jumlah;
 
-            // (Opsional) kirim ke halaman keranjang atau proses
-            // Intent intent = new Intent(this, CheckoutActivity.class);
-            // startActivity(intent);
+            // Kirim data ke server
+            ApiService apiService = ApiClient.getClient().create(ApiService.class);
+
+            // Sementara, kamu belum punya ID makanan dari database
+            // Jadi kamu perlu juga kirim "id" lewat Intent sebelumnya
+            int idMakanan = getIntent().getIntExtra("id", -1); // pastikan ID dikirim
+
+            apiService.insertPesanan(idMakanan, jumlah, totalHarga).enqueue(new Callback<ResponseModel>() {
+                @Override
+                public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                    if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
+                        Toast.makeText(detail_makanan.this, "Pesanan berhasil disimpan!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(detail_makanan.this, RiwayatPesanan.class));
+                    } else {
+                        Toast.makeText(detail_makanan.this, "Gagal menyimpan pesanan", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseModel> call, Throwable t) {
+                    Toast.makeText(detail_makanan.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
         });
+
     }
 
     // Fungsi hitung total harga

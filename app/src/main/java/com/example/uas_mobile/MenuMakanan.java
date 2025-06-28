@@ -1,5 +1,6 @@
 package com.example.uas_mobile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -51,7 +52,7 @@ public class MenuMakanan extends AppCompatActivity {
         });
 
         btnRiwayat.setOnClickListener(v -> {
-            // startActivity(new Intent(this, RiwayatPesananActivity.class));
+            startActivity(new Intent(this, RiwayatPesanan.class));
         });
     }
 }

@@ -40,6 +40,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         // Tambahkan ini untuk pindah ke halaman detail saat item diklik
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, detail_makanan.class);
+            intent.putExtra("id", menu.getId());
             intent.putExtra("nama", menu.getNama());
             intent.putExtra("gambar", menu.getGambar());
             intent.putExtra("harga", menu.getHarga());

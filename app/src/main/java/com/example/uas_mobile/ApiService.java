@@ -13,6 +13,10 @@ public interface ApiService {
     @GET("get_menu.php")
     Call<List<ModelMenuMakanan>> getMenu();
 
+    @GET("get_riwayat.php")
+    Call<List<ModelRiwayat>> getRiwayat();
+
+
     // Untuk register user
     @FormUrlEncoded
     @POST("register.php")
@@ -29,5 +33,21 @@ public interface ApiService {
             @Field("username") String username,
             @Field("password") String password
     );
+
+    // Untuk menyimpan pesanan
+    @FormUrlEncoded
+    @POST("pesan_sekarang.php")
+    Call<ResponseModel> insertPesanan(
+            @Field("id_makanan") int id_makanan,
+            @Field("jumlah") int jumlah,
+            @Field("total_harga") int total_harga
+    );
+
+    //hapus pesanan
+//    @FormUrlEncoded
+//    @POST("hapus_riwayat.php")
+//    Call<ResponseModel> hapusPesanan(@Field("id") int id);
+
+
 
 }
