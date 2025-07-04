@@ -1,15 +1,17 @@
 package com.example.uas_mobile;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class login extends AppCompatActivity {
 
@@ -44,12 +46,16 @@ public class login extends AppCompatActivity {
             call.enqueue(new Callback<ResponseModel>() {
                 @Override
                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                    if (response.body() != null && response.body().isSuccess()) {
-                        Toast.makeText(login.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
+                        // Simpan ID user ke SharedPreferences
+                        int idUser = response.body().getId(); // Pastikan ada getter getId()
+                        SharedPreferences prefs = getSharedPreferences("user_pref", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putInt("id_user", idUser);
+                        editor.apply();
 
-                        // ⬇️ Arahkan ke MenuMakananActivity
-                        Intent intent = new Intent(login.this, MenuMakanan.class);
-                        startActivity(intent);
+                        Toast.makeText(login.this, "Login berhasil", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(login.this, MenuMakanan.class));
                         finish(); // agar tidak kembali ke login saat tekan back
                     } else {
                         Toast.makeText(login.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();

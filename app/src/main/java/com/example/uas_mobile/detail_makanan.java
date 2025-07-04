@@ -1,11 +1,9 @@
 package com.example.uas_mobile;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import android.content.SharedPreferences;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +11,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 public class detail_makanan extends AppCompatActivity {
 
     private ImageView imgMakanan;
@@ -82,15 +83,20 @@ public class detail_makanan extends AppCompatActivity {
         // Tombol Pesan Sekarang
         btnPesan.setOnClickListener(v -> {
             int totalHarga = hargaSatuan * jumlah;
+            int idMakanan = getIntent().getIntExtra("id", -1);
+
+            // Ambil id_user dari SharedPreferences
+            SharedPreferences preferences = getSharedPreferences("user_pref", MODE_PRIVATE);
+            int idUser = preferences.getInt("id_user", -1); // -1 jika tidak ditemukan
+
+            if (idUser == -1) {
+                Toast.makeText(detail_makanan.this, "User tidak ditemukan. Silakan login ulang.", Toast.LENGTH_LONG).show();
+                return;
+            }
 
             // Kirim data ke server
             ApiService apiService = ApiClient.getClient().create(ApiService.class);
-
-            // Sementara, kamu belum punya ID makanan dari database
-            // Jadi kamu perlu juga kirim "id" lewat Intent sebelumnya
-            int idMakanan = getIntent().getIntExtra("id", -1); // pastikan ID dikirim
-
-            apiService.insertPesanan(idMakanan, jumlah, totalHarga).enqueue(new Callback<ResponseModel>() {
+            apiService.insertPesanan(idUser, idMakanan, jumlah, totalHarga).enqueue(new Callback<ResponseModel>() {
                 @Override
                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                     if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
