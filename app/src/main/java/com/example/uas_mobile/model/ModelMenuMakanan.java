@@ -1,4 +1,4 @@
-package com.example.uas_mobile;
+package com.example.uas_mobile.model;
 
 public class ModelMenuMakanan {
     private int id;

@@ -8,6 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.uas_mobile.api.ApiClient;
+import com.example.uas_mobile.api.ApiService;
+import com.example.uas_mobile.model.ModelMenuMakanan;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,7 +36,6 @@ public class MenuMakanan extends AppCompatActivity {
 
         apiService = ApiClient.getClient().create(ApiService.class);
 
-        // Perhatikan: Gunakan ModelMenuMakanan
         Call<List<ModelMenuMakanan>> call = apiService.getMenu();
         call.enqueue(new Callback<List<ModelMenuMakanan>>() {
             @Override

@@ -1,4 +1,4 @@
-package com.example.uas_mobile;
+package com.example.uas_mobile.model;
 
 public class ResponseModel {
     private boolean success;
