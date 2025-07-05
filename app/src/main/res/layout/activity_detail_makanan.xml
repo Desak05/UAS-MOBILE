@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="16dp"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Gambar Makanan -->
+        <ImageView
+            android:id="@+id/imgMakanan"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Gambar Makanan"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Nama Makanan -->
+        <TextView
+            android:id="@+id/txtNamaMakanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama Makanan"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Deskripsi Makanan -->
+        <TextView
+            android:id="@+id/txtDeskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi makanan akan ditampilkan di sini."
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Harga -->
+        <TextView
+            android:id="@+id/txtHarga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Harga: Rp 0"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Jumlah Pesanan -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jumlah:"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnKurang"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="−" />
+
+            <TextView
+                android:id="@+id/txtJumlah"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:layout_marginHorizontal="8dp" />
+
+            <Button
+                android:id="@+id/btnTambah"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+" />
+        </LinearLayout>
+
+        <!-- Total Harga -->
+        <TextView
+            android:id="@+id/txtTotalHarga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total: Rp 0"
+            android:textSize="18sp"
+            android:textColor="#0b1957"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Tombol Pesan -->
+        <Button
+            android:id="@+id/btnPesan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pesan Sekarang"
+            android:background="#0b1957"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

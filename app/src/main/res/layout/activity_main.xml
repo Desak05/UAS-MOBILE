@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gradient"
+    android:gravity="center_horizontal"
+    android:padding="24dp">
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selamat Datang\ndi FoodGo!"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textAlignment="center" />
+
+    <!-- Gambar Makanan -->
+    <ImageView
+        android:id="@+id/imgFood"
+        android:layout_width="250dp"
+        android:layout_height="233dp"
+        android:src="@drawable/welcome"
+        android:layout_marginTop="30dp"
+        android:contentDescription="Gambar Makanan" />
+
+    <TextView
+        android:id="@+id/tvSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Pesan makanan cukup dari rumah"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+
+    <Button
+        android:id="@+id/btnMulai"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_primary"
+        android:text="Mulai Sekarang"
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        android:onClick="btnMulai"/>
+
+</LinearLayout>
