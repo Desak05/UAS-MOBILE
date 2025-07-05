@@ -16,7 +16,6 @@ public interface ApiService {
     @GET("get_riwayat.php")
     Call<List<ModelRiwayat>> getRiwayat();
 
-
     // Untuk register user
     @FormUrlEncoded
     @POST("register.php")
@@ -44,11 +43,20 @@ public interface ApiService {
             @Field("total_harga") int total_harga
     );
 
-    //hapus pesanan
-//    @FormUrlEncoded
-//    @POST("hapus_riwayat.php")
-//    Call<ResponseModel> hapusPesanan(@Field("id") int id);
+    // ✅ Untuk menghapus riwayat pesanan
+    @FormUrlEncoded
+    @POST("hapus_riwayat.php")
+    Call<ResponseModel> hapusRiwayat(
+            @Field("id") int id
+    );
 
-
-
+    // ✅ Untuk mengupdate riwayat pesanan
+    @FormUrlEncoded
+    @POST("update_riwayat.php")
+    Call<ResponseModel> updateRiwayat(
+            @Field("id") int id,
+            @Field("id_makanan") int id_makanan,
+            @Field("jumlah") int jumlah,
+            @Field("total_harga") int total_harga
+    );
 }

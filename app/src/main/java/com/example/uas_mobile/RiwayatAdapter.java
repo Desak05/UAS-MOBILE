@@ -1,16 +1,23 @@
 package com.example.uas_mobile;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.*;
 import android.widget.*;
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.RiwayatViewHolder> {
 
-    private Context context;
-    private List<ModelRiwayat> riwayatList;
+    private final Context context;
+    private final List<ModelRiwayat> riwayatList;
 
     public RiwayatAdapter(Context context, List<ModelRiwayat> riwayatList) {
         this.context = context;
@@ -30,14 +37,55 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.RiwayatV
         holder.txtJumlah.setText("Jumlah: " + riwayat.getJumlah());
         holder.txtTotal.setText("Total: Rp " + riwayat.getTotal_harga());
 
+        // Tombol Edit
         holder.btnEdit.setOnClickListener(v -> {
-            // TODO: Implementasi edit
-            Toast.makeText(context, "Edit pesanan: " + riwayat.getNama_makanan(), Toast.LENGTH_SHORT).show();
+            int pos = holder.getAdapterPosition();
+            if (pos != RecyclerView.NO_POSITION) {
+                ModelRiwayat selected = riwayatList.get(pos);
+
+                Intent intent = new Intent(context, EditPesananActivity.class);
+                intent.putExtra("id", selected.getId());
+                intent.putExtra("id_makanan", selected.getId_makanan());
+                intent.putExtra("jumlah", selected.getJumlah());
+                intent.putExtra("total_harga", selected.getTotal_harga());
+
+                if (context instanceof Activity) {
+                    ((Activity) context).startActivityForResult(intent, 101); // requestCode: 101
+                }
+            }
         });
 
+        // Tombol Hapus
         holder.btnHapus.setOnClickListener(v -> {
-            // TODO: Implementasi hapus
-            Toast.makeText(context, "Hapus pesanan: " + riwayat.getNama_makanan(), Toast.LENGTH_SHORT).show();
+            int pos = holder.getAdapterPosition();
+            if (pos != RecyclerView.NO_POSITION) {
+                ModelRiwayat selected = riwayatList.get(pos);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Hapus Pesanan")
+                        .setMessage("Yakin ingin menghapus pesanan ini?")
+                        .setPositiveButton("Ya", (dialog, which) -> {
+                            ApiService apiService = ApiClient.getClient().create(ApiService.class);
+                            Call<ResponseModel> call = apiService.hapusRiwayat(selected.getId());
+
+                            call.enqueue(new Callback<ResponseModel>() {
+                                @Override
+                                public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                                    Toast.makeText(context, "Berhasil dihapus", Toast.LENGTH_SHORT).show();
+                                    riwayatList.remove(pos);
+                                    notifyItemRemoved(pos);
+                                    notifyItemRangeChanged(pos, riwayatList.size());
+                                }
+
+                                @Override
+                                public void onFailure(Call<ResponseModel> call, Throwable t) {
+                                    Toast.makeText(context, "Gagal menghapus", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        })
+                        .setNegativeButton("Batal", null)
+                        .show();
+            }
         });
     }
 
@@ -46,7 +94,7 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.RiwayatV
         return riwayatList.size();
     }
 
-    class RiwayatViewHolder extends RecyclerView.ViewHolder {
+    static class RiwayatViewHolder extends RecyclerView.ViewHolder {
         TextView txtNamaMakanan, txtJumlah, txtTotal;
         Button btnEdit, btnHapus;
 

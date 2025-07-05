@@ -1,12 +1,34 @@
 package com.example.uas_mobile;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ModelRiwayat {
+
+    @SerializedName("id")
+    private int id;
+
+    @SerializedName("id_makanan")
+    private int id_makanan;
+
+    @SerializedName("nama_makanan")
     private String nama_makanan;
-//    private int id;
+
+    @SerializedName("jumlah")
     private int jumlah;
+
+    @SerializedName("total_harga")
     private int total_harga;
 
-    public String getNama_makanan(){
+    // Getter
+    public int getId() {
+        return id;
+    }
+
+    public int getId_makanan() {
+        return id_makanan;
+    }
+
+    public String getNama_makanan() {
         return nama_makanan;
     }
 
@@ -14,9 +36,16 @@ public class ModelRiwayat {
         return jumlah;
     }
 
-//    public int getId() { return id; }
-
     public int getTotal_harga() {
         return total_harga;
+    }
+
+    // Setter (jika kamu ingin bisa ubah data secara manual, misalnya saat edit lokal)
+    public void setJumlah(int jumlah) {
+        this.jumlah = jumlah;
+    }
+
+    public void setTotal_harga(int total_harga) {
+        this.total_harga = total_harga;
     }
 }

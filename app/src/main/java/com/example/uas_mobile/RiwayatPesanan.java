@@ -1,5 +1,6 @@
 package com.example.uas_mobile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.*;
@@ -13,8 +14,8 @@ import retrofit2.Response;
 
 public class RiwayatPesanan extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    RiwayatAdapter riwayatAdapter;
+    private RecyclerView recyclerView;
+    private RiwayatAdapter riwayatAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +25,17 @@ public class RiwayatPesanan extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerRiwayat);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        getRiwayatData(); // Panggil saat pertama kali
+    }
+
+    private void getRiwayatData() {
         ApiService apiService = ApiClient.getClient().create(ApiService.class);
         Call<List<ModelRiwayat>> call = apiService.getRiwayat();
 
         call.enqueue(new Callback<List<ModelRiwayat>>() {
             @Override
             public void onResponse(Call<List<ModelRiwayat>> call, Response<List<ModelRiwayat>> response) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful() && response.body() != null) {
                     riwayatAdapter = new RiwayatAdapter(RiwayatPesanan.this, response.body());
                     recyclerView.setAdapter(riwayatAdapter);
                 } else {
@@ -43,5 +48,15 @@ public class RiwayatPesanan extends AppCompatActivity {
                 Toast.makeText(RiwayatPesanan.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    // Agar saat kembali dari EditPesananActivity, data diperbarui
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 101 && resultCode == RESULT_OK) {
+            getRiwayatData(); // Refresh data
+        }
     }
 }
