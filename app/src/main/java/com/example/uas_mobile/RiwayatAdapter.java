@@ -8,6 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.*;
 import android.widget.*;
 
+import com.example.uas_mobile.api.ApiClient;
+import com.example.uas_mobile.api.ApiService;
+import com.example.uas_mobile.model.ModelRiwayat;
+import com.example.uas_mobile.model.ResponseModel;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -55,7 +60,7 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.RiwayatV
             }
         });
 
-        // Tombol Hapus
+        // Tombol Hapus (versi dengan dialog konfirmasi)
         holder.btnHapus.setOnClickListener(v -> {
             int pos = holder.getAdapterPosition();
             if (pos != RecyclerView.NO_POSITION) {
@@ -71,15 +76,19 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.RiwayatV
                             call.enqueue(new Callback<ResponseModel>() {
                                 @Override
                                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                                    Toast.makeText(context, "Berhasil dihapus", Toast.LENGTH_SHORT).show();
-                                    riwayatList.remove(pos);
-                                    notifyItemRemoved(pos);
-                                    notifyItemRangeChanged(pos, riwayatList.size());
+                                    if (response.isSuccessful() && response.body().isSuccess()) {
+                                        Toast.makeText(context, "Berhasil dihapus", Toast.LENGTH_SHORT).show();
+                                        riwayatList.remove(pos);
+                                        notifyItemRemoved(pos);
+                                        notifyItemRangeChanged(pos, riwayatList.size());
+                                    } else {
+                                        Toast.makeText(context, "Gagal menghapus", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
 
                                 @Override
                                 public void onFailure(Call<ResponseModel> call, Throwable t) {
-                                    Toast.makeText(context, "Gagal menghapus", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             });
                         })

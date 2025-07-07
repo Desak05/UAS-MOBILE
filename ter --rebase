@@ -1,0 +1,35 @@
+[33mcommit f48a6684cb9a7840157a4f0478532d08e56d8010[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Desak05 <desakdiahsetyawati@gmail.com>
+Date:   Sat Jul 5 16:26:25 2025 +0800
+
+    perbaruan bagian edit
+
+[33mcommit cd5b5ee9fb0be2b13bd380ae28d32bdea463730a[m
+Author: Desak05 <desakdiahsetyawati@gmail.com>
+Date:   Fri Jul 4 20:53:41 2025 +0800
+
+    Update project: Detail makanan dan pemesanan
+
+[33mcommit 6bb5e4d67cf36f037b7d2d9e95fde856a59c4aee[m
+Author: WulanVini <wulanviniaprilia@gmail.com>
+Date:   Sat Jun 28 17:02:36 2025 +0800
+
+    Initial commit
+
+[33mcommit f722a8738cbf1f843b1350a1d195354d3f9b11b9[m
+Author: WulanVini <wulanviniaprilia@gmail.com>
+Date:   Sat Jun 28 12:35:10 2025 +0800
+
+    Initial commit
+
+[33mcommit c6884160eaff760512989bee8a5541c4d84a957e[m
+Author: WulanVini <wulanviniaprilia@gmail.com>
+Date:   Wed Jun 25 14:14:43 2025 +0800
+
+    Login,regis, welcome
+
+[33mcommit 7a66028a0b05e23088ae3948738c4ca36341f9d5[m
+Author: WulanVini <wulanviniaprilia@gmail.com>
+Date:   Mon Jun 23 09:28:23 2025 +0800
+
+    Connect Mysql
