@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Judul -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ringkasan Pesanan"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- List Pesanan -->
+        <TextView
+            android:id="@+id/txtRingkasanPesanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pesanan akan muncul di sini..."
+            android:textSize="16sp"
+            android:paddingBottom="16dp" />
+
+        <!-- Total -->
+        <TextView
+            android:id="@+id/txtTotalHarga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total: Rp0"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp" />
+
+        <!-- Input Uang Bayar -->
+        <EditText
+            android:id="@+id/inputUangBayar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan jumlah uang bayar"
+            android:inputType="number"
+            android:padding="10dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Tombol -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnBayar"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Bayar"
+                android:background="#0b1957"
+                android:textColor="#ffffff" />
+
+            <View
+                android:layout_width="12dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnKembali"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Kembali"
+                android:background="#888888"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -64,4 +64,22 @@ public interface ApiService {
             @Field("jumlah") int jumlah,
             @Field("total_harga") int total_harga
     );
+
+    @FormUrlEncoded
+    @POST("get_riwayat.php")
+    Call<List<ModelRiwayat>> getRiwayat(@Field("id_user") int idUser);
+
+    @FormUrlEncoded
+    @POST("simpan_pembayaran.php")
+    Call<ResponseModel> simpanPembayaran(
+            @Field("id_user") int idUser,
+            @Field("total") int total
+    );
+
+
+
+
+
+    @POST("checkout") // Ganti sesuai nama endpoint checkout kamu di backend
+    Call<Void> checkoutSemuaPesanan();
 }
