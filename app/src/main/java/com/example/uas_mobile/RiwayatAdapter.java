@@ -60,7 +60,7 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.RiwayatV
             }
         });
 
-        // Tombol Hapus (versi dengan dialog konfirmasi)
+        // Tombol Hapus
         holder.btnHapus.setOnClickListener(v -> {
             int pos = holder.getAdapterPosition();
             if (pos != RecyclerView.NO_POSITION) {
