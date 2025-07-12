@@ -56,7 +56,14 @@ public class Checkout extends AppCompatActivity {
                 simpanPembayaran(totalHarga); // Simpan ke database
 
                 // Tampilkan struk
-                tampilkanStruk(ringkasanText, totalHarga, uangBayar, kembalian);
+                Intent intent = new Intent(Checkout.this, StrukActivity.class);
+                intent.putExtra("ringkasan", ringkasanText);
+                intent.putExtra("total", totalHarga);
+                intent.putExtra("bayar", uangBayar);
+                intent.putExtra("kembalian", kembalian);
+                startActivity(intent);
+                finish();
+
             }
         });
 
@@ -121,22 +128,4 @@ public class Checkout extends AppCompatActivity {
         });
     }
 
-    private void tampilkanStruk(String ringkasan, int total, int bayar, int kembalian) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Struk Pembayaran");
-
-        String isiStruk = ringkasan + "\n" +
-                "Total: Rp" + total + "\n" +
-                "Uang Bayar: Rp" + bayar + "\n" +
-                "Kembalian: Rp" + kembalian;
-
-        builder.setMessage(isiStruk);
-        builder.setPositiveButton("Lihat Riwayat", (dialog, which) -> {
-            Intent i = new Intent(Checkout.this, RiwayatPesanan.class);
-            startActivity(i);
-            finish();
-        });
-        builder.setNegativeButton("Tutup", null);
-        builder.show();
-    }
 }
