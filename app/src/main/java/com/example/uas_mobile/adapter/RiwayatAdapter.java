@@ -1,4 +1,4 @@
-package com.example.uas_mobile;
+package com.example.uas_mobile.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.*;
 import android.widget.*;
 
+import com.example.uas_mobile.EditPesananActivity;
+import com.example.uas_mobile.R;
 import com.example.uas_mobile.api.ApiClient;
 import com.example.uas_mobile.api.ApiService;
 import com.example.uas_mobile.model.ModelRiwayat;

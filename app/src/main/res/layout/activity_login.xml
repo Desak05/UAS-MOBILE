@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D32F2F"> <!-- Merah gelap -->
+    android:background="#E4002B"> <!-- biru gelap -->
 
     <LinearLayout
         android:orientation="vertical"
@@ -62,7 +62,7 @@
                 android:id="@+id/btnLogin"
                 android:text="Login"
                 android:textAllCaps="false"
-                android:backgroundTint="#D32F2F"
+                android:backgroundTint="#E4002B"
                 android:textColor="#FFF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

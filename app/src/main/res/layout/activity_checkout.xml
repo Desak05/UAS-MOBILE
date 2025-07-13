@@ -62,7 +62,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="Bayar"
-                android:background="#0b1957"
+                android:background="#0b1"
                 android:textColor="#ffffff" />
 
             <View

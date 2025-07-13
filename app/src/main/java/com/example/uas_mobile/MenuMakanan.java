@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.uas_mobile.adapter.MenuAdapter;
 import com.example.uas_mobile.api.ApiClient;
 import com.example.uas_mobile.api.ApiService;
 import com.example.uas_mobile.model.ModelMenuMakanan;

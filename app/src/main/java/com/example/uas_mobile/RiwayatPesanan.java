@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.uas_mobile.adapter.RiwayatAdapter;
 import com.example.uas_mobile.api.ApiClient;
 import com.example.uas_mobile.api.ApiService;
 import com.example.uas_mobile.model.ModelRiwayat;

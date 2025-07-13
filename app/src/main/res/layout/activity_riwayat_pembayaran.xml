@@ -10,6 +10,14 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerRiwayatPembayaran"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp" />
+
+    <Button
+        android:id="@+id/btnKembaliKeMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kembali ke Menu"
+        android:layout_margin="16dp" />
 </LinearLayout>

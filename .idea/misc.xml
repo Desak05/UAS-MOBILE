@@ -6,20 +6,21 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/drawable/bg_gradient.xml" value="0.118" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/drawable/bg_rounded_white.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/drawable/btn_primary.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/drawable/ic_email.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/drawable/ic_launcher_background.xml" value="0.118" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_checkout.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_checkout.xml" value="0.25100401606425704" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_detail_makanan.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_edit_pesanan.xml" value="0.13541666666666666" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_menu_makanan.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_menu_makanan.xml" value="0.2753303964757709" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_register.xml" value="0.14130434782608695" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_riwayat_pembayaran.xml" value="0.15217391304347827" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_riwayat_pesanan.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_riwayat_pembayaran.xml" value="0.5" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_riwayat_pesanan.xml" value="0.22" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/activity_struk.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/item_menu.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/item_pembayaran.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/item_riwayat.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/item_riwayat.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/UAS_MOBILE/app/src/main/res/layout/item_riwayat_pembayaran.xml" value="0.1308876811594203" />
       </map>
     </option>

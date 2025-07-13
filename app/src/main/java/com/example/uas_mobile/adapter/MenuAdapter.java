@@ -1,4 +1,4 @@
-package com.example.uas_mobile;
+package com.example.uas_mobile.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.uas_mobile.R;
+import com.example.uas_mobile.detail_makanan;
 import com.example.uas_mobile.model.ModelMenuMakanan;
 
 import java.util.List;

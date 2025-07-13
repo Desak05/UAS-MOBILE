@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D32F2F">
+    android:background="#E4002B">
 
     <LinearLayout
         android:orientation="vertical"
@@ -73,7 +73,7 @@
                 android:id="@+id/btnRegister"
                 android:text="Daftar"
                 android:textAllCaps="false"
-                android:backgroundTint="#D32F2F"
+                android:backgroundTint="#E4002B"
                 android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

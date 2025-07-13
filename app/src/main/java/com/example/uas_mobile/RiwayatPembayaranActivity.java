@@ -1,11 +1,13 @@
 package com.example.uas_mobile;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.uas_mobile.adapter.RiwayatPembayaranAdapter;
@@ -34,6 +36,13 @@ public class RiwayatPembayaranActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_riwayat_pembayaran);
 
+        // ✅ Inisialisasi tombol kembali
+        Button btnKembali = findViewById(R.id.btnKembaliKeMenu);
+        btnKembali.setOnClickListener(v -> {
+            startActivity(new Intent(RiwayatPembayaranActivity.this, MenuMakanan.class));
+            finish();
+        });
+
         recyclerView = findViewById(R.id.recyclerRiwayatPembayaran);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -44,8 +53,6 @@ public class RiwayatPembayaranActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("user_pref", MODE_PRIVATE);
         int idUser = prefs.getInt("id_user", -1);
-
-        Toast.makeText(this, "ID User: " + idUser, Toast.LENGTH_SHORT).show();
 
         if (idUser == -1) {
             Toast.makeText(this, "ID User tidak ditemukan", Toast.LENGTH_SHORT).show();
@@ -60,10 +67,8 @@ public class RiwayatPembayaranActivity extends AppCompatActivity {
                     list.addAll(response.body());
                     adapter.notifyDataSetChanged();
                     Log.d("RIWAYAT", "Data berhasil dimuat: " + new Gson().toJson(response.body()));
-                    Toast.makeText(RiwayatPembayaranActivity.this, "Data riwayat ditemukan", Toast.LENGTH_SHORT).show();
                 } else {
                     try {
-                        // Tambahan log untuk melihat isi error jika gagal parsing
                         String errorBody = response.errorBody().string();
                         Log.e("RIWAYAT", "Gagal parsing: " + errorBody);
                         Toast.makeText(RiwayatPembayaranActivity.this, "Gagal parsing JSON", Toast.LENGTH_SHORT).show();
