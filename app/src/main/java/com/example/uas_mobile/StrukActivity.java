@@ -62,7 +62,7 @@ public class StrukActivity extends AppCompatActivity {
             finish();
         });
 
-        // Hapus riwayat pesanan setelah pembayaran
+        // Tampil Struk dan Hapus riwayat pesanan setelah pembayaran
         SharedPreferences prefs = getSharedPreferences("user_pref", MODE_PRIVATE);
         int idUser = prefs.getInt("id_user", -1);
 
@@ -73,9 +73,9 @@ public class StrukActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                     if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
-                        Toast.makeText(StrukActivity.this, "Riwayat pesanan dihapus", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StrukActivity.this, "Berhasil melakukan pembayaran", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(StrukActivity.this, "Gagal hapus riwayat", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StrukActivity.this, "pembayaran gagal", Toast.LENGTH_SHORT).show();
                     }
                 }
 

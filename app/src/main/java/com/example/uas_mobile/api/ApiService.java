@@ -18,9 +18,6 @@ public interface ApiService {
     @GET("get_menu.php")
     Call<List<ModelMenuMakanan>> getMenu();
 
-    @GET("get_riwayat.php")
-    Call<List<ModelRiwayat>> getRiwayat();
-
     // Untuk register user
     @FormUrlEncoded
     @POST("register.php")
