@@ -2,15 +2,16 @@ package com.example.uas_mobile.api;
 
 import com.example.uas_mobile.model.ModelMenuMakanan;
 import com.example.uas_mobile.model.ModelRiwayat;
+import com.example.uas_mobile.model.ModelRiwayatPembayaran;
 import com.example.uas_mobile.model.ResponseModel;
 
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface ApiService {
 
@@ -77,9 +78,20 @@ public interface ApiService {
     );
 
 
-
-
-
     @POST("checkout") // Ganti sesuai nama endpoint checkout kamu di backend
     Call<Void> checkoutSemuaPesanan();
+
+    //untuk riwayat pembayaran
+    @FormUrlEncoded
+    @POST("get_riwayat_pembayaran.php")
+    Call<List<ModelRiwayatPembayaran>> getRiwayatPembayaran(
+            @Field("id_user") int idUser
+    );
+
+    //hapus riwayat pesanan
+    @FormUrlEncoded
+    @POST("hapus_riwayat_pesanan.php")
+    Call<ResponseModel> hapusRiwayatPesanan(
+            @Field("id_user") int idUser
+    );
 }

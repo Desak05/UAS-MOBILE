@@ -15,6 +15,15 @@
         android:background="#0b1957"
         android:textColor="#ffffff" />
 
+    <Button
+        android:id="@+id/btnRiwayatPembayaran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📋 Riwayat Pembayaran"
+        android:layout_marginBottom="12dp"
+        android:background="#0b1957"
+        android:textColor="#ffffff" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerMenu"
         android:layout_width="match_parent"

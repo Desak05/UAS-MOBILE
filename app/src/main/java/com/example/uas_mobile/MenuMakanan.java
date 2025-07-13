@@ -24,6 +24,7 @@ public class MenuMakanan extends AppCompatActivity {
     MenuAdapter menuAdapter;
     ApiService apiService;
     Button btnRiwayat;
+    Button btnRiwayatPembayaran;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MenuMakanan extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerMenu);
         btnRiwayat = findViewById(R.id.btnRiwayatPesanan);
+        btnRiwayatPembayaran = findViewById(R.id.btnRiwayatPembayaran);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         apiService = ApiClient.getClient().create(ApiService.class);
@@ -56,6 +58,10 @@ public class MenuMakanan extends AppCompatActivity {
 
         btnRiwayat.setOnClickListener(v -> {
             startActivity(new Intent(this, RiwayatPesanan.class));
+        });
+
+        btnRiwayatPembayaran.setOnClickListener(v -> {
+            startActivity(new Intent(MenuMakanan.this, RiwayatPembayaranActivity.class));
         });
     }
 }
