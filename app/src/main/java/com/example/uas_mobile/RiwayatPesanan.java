@@ -21,6 +21,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import android.util.Log;
+
+
 public class RiwayatPesanan extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -60,7 +63,7 @@ public class RiwayatPesanan extends AppCompatActivity {
         getRiwayatData(); // Panggil saat pertama kali
     }
 
-    private void getRiwayatData() {
+    public void getRiwayatData() {
         SharedPreferences preferences = getSharedPreferences("user_pref", MODE_PRIVATE);
         int idUser = preferences.getInt("id_user", -1);
 
@@ -76,16 +79,32 @@ public class RiwayatPesanan extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<ModelRiwayat>> call, Response<List<ModelRiwayat>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    riwayatAdapter = new RiwayatAdapter(RiwayatPesanan.this, response.body());
-                    recyclerView.setAdapter(riwayatAdapter);
+                    List<ModelRiwayat> riwayatList = response.body();
+                    Log.d("RiwayatPesanan", "Jumlah riwayat: " + riwayatList.size());
+
+                    if (riwayatList.isEmpty()) {
+                        recyclerView.setAdapter(null); // Kosongkan list
+                        btnCheckout.setEnabled(false);
+                        btnCheckout.setAlpha(0.5f);
+                        Toast.makeText(RiwayatPesanan.this, "Riwayat kosong.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        btnCheckout.setEnabled(true);
+                        btnCheckout.setAlpha(1.0f);
+                        riwayatAdapter = new RiwayatAdapter(RiwayatPesanan.this, riwayatList);
+                        recyclerView.setAdapter(riwayatAdapter);
+                    }
                 } else {
                     Toast.makeText(RiwayatPesanan.this, "Gagal memuat riwayat", Toast.LENGTH_SHORT).show();
+                    btnCheckout.setEnabled(false);
+                    btnCheckout.setAlpha(0.5f);
                 }
             }
 
             @Override
             public void onFailure(Call<List<ModelRiwayat>> call, Throwable t) {
                 Toast.makeText(RiwayatPesanan.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                btnCheckout.setEnabled(false);
+                btnCheckout.setAlpha(0.5f);
             }
         });
     }

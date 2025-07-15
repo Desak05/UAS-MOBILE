@@ -10,6 +10,7 @@ import android.widget.*;
 
 import com.example.uas_mobile.EditPesananActivity;
 import com.example.uas_mobile.R;
+import com.example.uas_mobile.RiwayatPesanan;
 import com.example.uas_mobile.api.ApiClient;
 import com.example.uas_mobile.api.ApiService;
 import com.example.uas_mobile.model.ModelRiwayat;
@@ -83,6 +84,12 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.RiwayatV
                                         riwayatList.remove(pos);
                                         notifyItemRemoved(pos);
                                         notifyItemRangeChanged(pos, riwayatList.size());
+
+                                        // ✅ Jika list sudah kosong, panggil ulang getRiwayatData() dari activity
+                                        if (riwayatList.isEmpty() && context instanceof RiwayatPesanan) {
+                                            ((RiwayatPesanan) context).getRiwayatData();
+                                        }
+
                                     } else {
                                         Toast.makeText(context, "Gagal menghapus", Toast.LENGTH_SHORT).show();
                                     }
